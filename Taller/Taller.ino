@@ -102,11 +102,6 @@ void publicarSensores() {
 
   int luz = ((ldr * 100)/4095);
 
-  if (isnan(t) || isnan(h)) {
-    Serial.println("Error");
-    return;
-  }
-
   mqttClient.publish(TOPIC_TEMPERATURA, String(t).c_str());
   mqttClient.publish(TOPIC_HUMEDAD, String(h).c_str());
   mqttClient.publish(TOPIC_LUZ, String(luz).c_str());
